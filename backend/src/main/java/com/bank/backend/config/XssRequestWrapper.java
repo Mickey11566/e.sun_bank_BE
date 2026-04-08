@@ -1,4 +1,4 @@
-package com.bank.backend.config.security;
+package com.bank.backend.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;

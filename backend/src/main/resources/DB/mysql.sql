@@ -29,11 +29,10 @@ CREATE TABLE `like_list` (
   `account` varchar(255) DEFAULT NULL,
   `total_fee` int DEFAULT NULL,
   `total_amount` int DEFAULT NULL,
-  `total_amout` int DEFAULT NULL,
   PRIMARY KEY (`sn`),
   KEY `product_no` (`product_no`),
   CONSTRAINT `like_list_ibfk_1` FOREIGN KEY (`product_no`) REFERENCES `product` (`no`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +41,6 @@ CREATE TABLE `like_list` (
 
 LOCK TABLES `like_list` WRITE;
 /*!40000 ALTER TABLE `like_list` DISABLE KEYS */;
-INSERT INTO `like_list` VALUES (1,1,10,'user001',10,1010,NULL),(2,2,5,'user002',20,1020,NULL);
 /*!40000 ALTER TABLE `like_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +57,7 @@ CREATE TABLE `product` (
   `price` int DEFAULT NULL,
   `fee_rate` float DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +66,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'ETF A',100,0.01),(2,'ETF B',200,0.02);
+INSERT INTO `product` VALUES (6,'006208',184000,0.03),(7,'0050',79200,0.03),(8,'00757',112000,0.01);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +83,8 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL,
   `account` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -95,6 +94,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('ded06648-927e-47fc-b6e8-77fd2b9742fc','王小明','test@gmail.com','8901302371','$2a$10$pIODLTIM/R.bVDv94L6V.eEOTcrLwmQrKV/IdMlH8Pt8SQi33/sBq');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-08 23:08:33
+-- Dump completed on 2026-04-09  2:27:55

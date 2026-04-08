@@ -1,4 +1,4 @@
-package com.bank.backend.config.security;
+package com.bank.backend.config;
 
 import java.io.IOException;
 
